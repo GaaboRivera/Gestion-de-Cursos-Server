@@ -6,6 +6,7 @@ const app = express();
 
 //Imports routings
 const authRoutes = require("./router/auth");
+const userRoutes = require("./router/user");
 
 // Middleware para analizar cuerpos JSON
 app.use(express.json());
@@ -21,5 +22,6 @@ app.use(cors());
 
 //Configure routings
 app.use(`/api/${API_VERSION}`, authRoutes);
+app.use(`/api/${API_VERSION}`, userRoutes);
 
 module.exports = app;
