@@ -22,7 +22,7 @@ async function getUsers(req, res) {
   if (active === undefined) {
     response = await User.find()
   } else {
-    response = await User.findOne({ active })
+    response = await User.find({ active })
   }
 
   return res.status(200).send(response)
