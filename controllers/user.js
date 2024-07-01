@@ -45,7 +45,7 @@ async function createUser(req, res) {
   user
     .save()
     .then(userStored => {
-      return res.status(201).send(userStored)
+      return res.status(200).send(userStored)
     })
     .catch(() => {
       res.status(400).send({ msg: 'Error al guardar al usuario' })
@@ -75,7 +75,7 @@ async function updateUser(req, res) {
 
   User.findByIdAndUpdate({ _id: id }, userData)
     .then(() => {
-      return res.status(201).send({ msg: 'Actualización correcta' })
+      return res.status(200).send({ msg: 'Actualización correcta' })
     })
     .catch(() => {
       res.status(400).send({ msg: 'Error al actualizar el usuario' })
@@ -87,7 +87,7 @@ async function deleteUser(req, res) {
 
   User.findByIdAndDelete({ _id: id })
     .then(() => {
-      return res.status(201).send({ msg: 'Usuario Eliminado' })
+      return res.status(200).send({ msg: 'Usuario Eliminado' })
     })
     .catch(() => {
       res.status(400).send({ msg: 'Error al eliminar al usuario' })
